@@ -1,1 +1,405 @@
-println("UKK.ZIAD.id")
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Muhammad Ziad Ilmi</title>
+    <!-- Font Awesome untuk Ikon Media Sosial -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sky-blue-light: #e0f2fe;
+            --sky-blue-medium: #38bdf8;
+            --sky-blue-dark: #0284c7;
+            --navy-blue: #0f172a;
+            --white: #ffffff;
+            --card-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
+            color: #334155;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, var(--sky-blue-medium), var(--sky-blue-dark));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
+        }
+
+        h1 {
+            color: var(--navy-blue);
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: var(--sky-blue-dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .bio-summary {
+            max-width: 650px;
+            margin: 0 auto;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--sky-blue-light);
+            color: var(--sky-blue-dark);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        /* Section Layout */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(14, 165, 233, 0.25);
+        }
+
+        .card-title {
+            color: var(--navy-blue);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--sky-blue-light);
+            padding-bottom: 10px;
+        }
+
+        .card-title i {
+            color: var(--sky-blue-dark);
+        }
+
+        /* Information List */
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .info-value {
+            color: var(--navy-blue);
+            font-weight: 500;
+            text-align: right;
+        }
+
+        /* Timeline Pendidikan */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--sky-blue-medium);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--sky-blue-dark);
+            border: 3px solid var(--white);
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: var(--navy-blue);
+        }
+
+        .timeline-status {
+            font-size: 0.85rem;
+            color: #0284c7;
+            font-weight: 500;
+        }
+
+        /* Skills Tag */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+            color: var(--sky-blue-dark);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        /* Contact Section & Buttons */
+        .contact-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-email {
+            background-color: #EA4335;
+            color: white;
+        }
+
+        .btn-email:hover {
+            background-color: #c53124;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(234, 67, 53, 0.4);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+        }
+
+        .btn-instagram:hover {
+            opacity: 0.9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(220, 39, 67, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #0369a1;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+            }
+            .contact-buttons {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .info-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2px;
+            }
+            .info-value {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="avatar">MZ</div>
+            <h1>MUHAMMAD ZIAD ILMI</h1>
+            <div class="subtitle">Siswa Teknik Komputer & Jaringan (TKJ)</div>
+            <p class="bio-summary">
+                Saya adalah pribadi yang <strong>disiplin</strong> dan <strong>bertanggung jawab</strong>. Berpengalaman dan fokus pada bidang instalasi server serta konfigurasi jaringan komputer.
+            </p>
+            <span class="badge"><i class="fa-solid fa-graduation-cap"></i> Kelas XII - SMK Ma'arif NU Tirto</span>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="grid-layout">
+            
+            <!-- Biodata Card -->
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-user"></i> Biodata Diri</h2>
+                <ul class="info-list">
+                    <li>
+                        <span class="info-label">Nama Lengkap</span>
+                        <span class="info-value">Muhammad Ziad Ilmi</span>
+                    </li>
+                    <li>
+                        <span class="info-label">Tempat, Tgl Lahir</span>
+                        <span class="info-value">Pekalongan, 24 Januari 2010</span>
+                    </li>
+                    <li>
+                        <span class="info-label">Status Saat Ini</span>
+                        <span class="info-value">Siswa Active (Kelas XII)</span>
+                    </li>
+                    <li>
+                        <span class="info-label">Jurusan</span>
+                        <span class="info-value">Teknik Komputer & Jaringan</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Riwayat Pendidikan Card -->
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-school"></i> Pendidikan</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">SMK Ma’arif NU Tirto</div>
+                        <div class="timeline-status">Teknik Komputer & Jaringan (Saat ini - Kelas XII)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">MTs Istifaiyah Nahdliyah (MTs IN)</div>
+                        <div class="timeline-status">Lulusan Sekolah Menengah Pertama</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">MIS Curug</div>
+                        <div class="timeline-status">Lulusan Sekolah Dasar</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Keahlian Section -->
+        <div class="card" style="margin-bottom: 30px;">
+            <h2 class="card-title"><i class="fa-solid fa-gears"></i> Keahlian & Skill Jaringan</h2>
+            <div class="skills-container">
+                <div class="skill-tag">
+                    <i class="fa-solid fa-server"></i> Install aaPanel
+                </div>
+                <div class="skill-tag">
+                    <i class="fa-solid fa-network-wired"></i> Setting VLAN
+                </div>
+                <div class="skill-tag">
+                    <i class="fa-solid fa-router"></i> Setting Router
+                </div>
+                <div class="skill-tag">
+                    <i class="fa-solid fa-wifi"></i> Setting Access Point
+                </div>
+                <div class="skill-tag">
+                    <i class="fa-solid fa-sliders"></i> Setting Switch Management
+                </div>
+            </div>
+        </div>
+
+        <!-- Kontak Section -->
+        <div class="contact-section">
+            <h2 class="card-title" style="
