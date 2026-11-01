@@ -4,402 +4,306 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio - Muhammad Ziad Ilmi</title>
-    <!-- Font Awesome untuk Ikon Media Sosial -->
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --sky-blue-light: #e0f2fe;
-            --sky-blue-medium: #38bdf8;
-            --sky-blue-dark: #0284c7;
-            --navy-blue: #0f172a;
-            --white: #ffffff;
-            --card-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        body {
             font-family: 'Poppins', sans-serif;
         }
-
-        body {
+        /* Custom Sky Blue Gradient Backgrounds */
+        .bg-sky-gradient {
             background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
-            color: #334155;
-            min-height: 100vh;
-            line-height: 1.6;
         }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .bg-hero-gradient {
+            background: linear-gradient(135deg, #0284c7 0%, #38bdf8 50%, #bae6fd 100%);
         }
-
-        /* Header / Hero Section */
-        header {
+        .glass-card {
             background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-        }
-
-        .avatar {
-            width: 110px;
-            height: 110px;
-            background: linear-gradient(135deg, var(--sky-blue-medium), var(--sky-blue-dark));
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 42px;
-            font-weight: 700;
-            margin: 0 auto 20px;
-            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
-        }
-
-        h1 {
-            color: var(--navy-blue);
-            font-size: 2.2rem;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            color: var(--sky-blue-dark);
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
-        .bio-summary {
-            max-width: 650px;
-            margin: 0 auto;
-            color: #475569;
-            font-size: 0.95rem;
-        }
-
-        .badge {
-            display: inline-block;
-            background: var(--sky-blue-light);
-            color: var(--sky-blue-dark);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 15px;
-        }
-
-        /* Section Layout */
-        .grid-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px -5px rgba(14, 165, 233, 0.25);
-        }
-
-        .card-title {
-            color: var(--navy-blue);
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 2px solid var(--sky-blue-light);
-            padding-bottom: 10px;
-        }
-
-        .card-title i {
-            color: var(--sky-blue-dark);
-        }
-
-        /* Information List */
-        .info-list {
-            list-style: none;
-        }
-
-        .info-list li {
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px dashed #e2e8f0;
-            padding-bottom: 8px;
-            font-size: 0.95rem;
-        }
-
-        .info-list li:last-child {
-            border-bottom: none;
-        }
-
-        .info-label {
-            font-weight: 600;
-            color: #64748b;
-        }
-
-        .info-value {
-            color: var(--navy-blue);
-            font-weight: 500;
-            text-align: right;
-        }
-
-        /* Timeline Pendidikan */
-        .timeline {
-            position: relative;
-            padding-left: 20px;
-            border-left: 3px solid var(--sky-blue-medium);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -27px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--sky-blue-dark);
-            border: 3px solid var(--white);
-        }
-
-        .timeline-title {
-            font-weight: 600;
-            color: var(--navy-blue);
-        }
-
-        .timeline-status {
-            font-size: 0.85rem;
-            color: #0284c7;
-            font-weight: 500;
-        }
-
-        /* Skills Tag */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
-            color: var(--sky-blue-dark);
-            padding: 10px 16px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
-
-        /* Contact Section & Buttons */
-        .contact-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: var(--card-shadow);
-        }
-
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: white;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #1da851;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
-        }
-
-        .btn-email {
-            background-color: #EA4335;
-            color: white;
-        }
-
-        .btn-email:hover {
-            background-color: #c53124;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(234, 67, 53, 0.4);
-        }
-
-        .btn-instagram {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white;
-        }
-
-        .btn-instagram:hover {
-            opacity: 0.9;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(220, 39, 67, 0.4);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #0369a1;
-            font-size: 0.85rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px 15px;
-            }
-            .contact-buttons {
-                flex-direction: column;
-            }
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            .info-list li {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 2px;
-            }
-            .info-value {
-                text-align: left;
-            }
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
-<body>
+<body class="bg-sky-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
 
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="avatar">MZ</div>
-            <h1>MUHAMMAD ZIAD ILMI</h1>
-            <div class="subtitle">Siswa Teknik Komputer & Jaringan (TKJ)</div>
-            <p class="bio-summary">
-                Saya adalah pribadi yang <strong>disiplin</strong> dan <strong>bertanggung jawab</strong>. Berpengalaman dan fokus pada bidang instalasi server serta konfigurasi jaringan komputer.
-            </p>
-            <span class="badge"><i class="fa-solid fa-graduation-cap"></i> Kelas XII - SMK Ma'arif NU Tirto</span>
-        </header>
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 glass-card shadow-sm transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold text-sky-700 tracking-wide flex items-center gap-2">
+                <i class="fa-solid fa-network-wired text-sky-500"></i>
+                ZIAD ILMI
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-700">
+                <a href="#tentang" class="hover:text-sky-600 transition">Tentang</a>
+                <a href="#pendidikan" class="hover:text-sky-600 transition">Pendidikan</a>
+                <a href="#keahlian" class="hover:text-sky-600 transition">Keahlian</a>
+                <a href="#kontak" class="hover:text-sky-600 transition">Kontak</a>
+            </nav>
+            <a href="https://wa.me/6285842220988" target="_blank" class="bg-sky-500 hover:bg-sky-600 text-white text-sm px-4 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition duration-200">
+                Hubungi Saya
+            </a>
+        </div>
+    </header>
 
-        <!-- Main Content Grid -->
-        <div class="grid-layout">
-            
-            <!-- Biodata Card -->
-            <div class="card">
-                <h2 class="card-title"><i class="fa-solid fa-user"></i> Biodata Diri</h2>
-                <ul class="info-list">
-                    <li>
-                        <span class="info-label">Nama Lengkap</span>
-                        <span class="info-value">Muhammad Ziad Ilmi</span>
-                    </li>
-                    <li>
-                        <span class="info-label">Tempat, Tgl Lahir</span>
-                        <span class="info-value">Pekalongan, 24 Januari 2010</span>
-                    </li>
-                    <li>
-                        <span class="info-label">Status Saat Ini</span>
-                        <span class="info-value">Siswa Active (Kelas XII)</span>
-                    </li>
-                    <li>
-                        <span class="info-label">Jurusan</span>
-                        <span class="info-value">Teknik Komputer & Jaringan</span>
-                    </li>
-                </ul>
+    <!-- Hero / Main Section -->
+    <main class="flex-grow">
+        <section class="relative py-12 md:py-20 overflow-hidden bg-sky-gradient">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Text Info Column -->
+                    <div class="md:col-span-7 text-center md:text-left space-y-4">
+                        <div class="inline-flex items-center gap-2 bg-sky-100 text-sky-800 border border-sky-300 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold tracking-wide">
+                            <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
+                            Siswa SMK Kelas XII - TKJ
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+                            Halo, Saya <span class="text-sky-600 block sm:inline">MUHAMMAD ZIAD ILMI</span>
+                        </h1>
+                        <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+                            Seorang siswa <b>Teknik Komputer dan Jaringan (TKJ)</b> di <b>SMK Ma’arif NU Tirto</b> yang berdedikasi, <b>disiplin</b>, dan <b>bertanggung jawab</b>. Memiliki minat mendalam pada administrasi server & jaringan komputer.
+                        </p>
+                        
+                        <!-- CTA Contact Buttons -->
+                        <div class="pt-4 flex flex-wrap justify-center md:justify-start gap-3">
+                            <a href="https://wa.me/6285842220988" target="_blank" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-medium px-5 py-2.5 rounded-xl shadow-md transition transform hover:-translate-y-0.5">
+                                <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+                            </a>
+                            <a href="mailto:yattjiyatt@gmail.com" target="_blank" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-medium px-5 py-2.5 rounded-xl shadow-md transition transform hover:-translate-y-0.5">
+                                <i class="fa-regular fa-envelope text-lg"></i> Email
+                            </a>
+                            <a href="https://instagram.com/just4.zy__" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium px-5 py-2.5 rounded-xl shadow-md transition transform hover:-translate-y-0.5">
+                                <i class="fa-brands fa-instagram text-lg"></i> Instagram
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Profile Image Column (Original unmodified photo aspect) -->
+                    <div class="md:col-span-5 flex justify-center">
+                        <div class="relative group">
+                            <!-- Glow background -->
+                            <div class="absolute -inset-1 bg-gradient-to-r from-sky-400 to-blue-500 rounded-3xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                            
+                            <!-- Frame Container -->
+                            <div class="relative bg-white p-3 rounded-2xl shadow-xl overflow-hidden max-w-xs sm:max-w-sm">
+                                <img src="1000774854_f25743.jpg" 
+                                     alt="Muhammad Ziad Ilmi" 
+                                     class="w-full h-auto rounded-xl object-contain shadow-sm border border-sky-100"
+                                     onerror="this.onerror=null; this.src='1000774854_f25743.jpg';">
+                                <div class="mt-3 text-center">
+                                    <h3 class="font-bold text-slate-800 text-base">Muhammad Ziad Ilmi</h3>
+                                    <p class="text-xs text-sky-600 font-medium">Teknik Komputer & Jaringan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+        </section>
 
-            <!-- Riwayat Pendidikan Card -->
-            <div class="card">
-                <h2 class="card-title"><i class="fa-solid fa-school"></i> Pendidikan</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-title">SMK Ma’arif NU Tirto</div>
-                        <div class="timeline-status">Teknik Komputer & Jaringan (Saat ini - Kelas XII)</div>
+        <!-- Biodata Section -->
+        <section id="tentang" class="py-12 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Biodata Diri</h2>
+                    <div class="w-16 h-1 bg-sky-500 mx-auto mt-2 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-start p-4 bg-sky-50 rounded-xl border border-sky-100">
+                        <div class="p-3 bg-sky-500 text-white rounded-lg mr-4">
+                            <i class="fa-solid fa-user text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-sky-600 font-semibold uppercase tracking-wider">Nama Lengkap</p>
+                            <p class="font-semibold text-slate-800">MUHAMMAD ZIAD ILMI</p>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-title">MTs Istifaiyah Nahdliyah (MTs IN)</div>
-                        <div class="timeline-status">Lulusan Sekolah Menengah Pertama</div>
+
+                    <div class="flex items-start p-4 bg-sky-50 rounded-xl border border-sky-100">
+                        <div class="p-3 bg-sky-500 text-white rounded-lg mr-4">
+                            <i class="fa-solid fa-calendar-days text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-sky-600 font-semibold uppercase tracking-wider">Tempat, Tanggal Lahir</p>
+                            <p class="font-semibold text-slate-800">Pekalongan, 24 Januari 2010</p>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-title">MIS Curug</div>
-                        <div class="timeline-status">Lulusan Sekolah Dasar</div>
+
+                    <div class="flex items-start p-4 bg-sky-50 rounded-xl border border-sky-100">
+                        <div class="p-3 bg-sky-500 text-white rounded-lg mr-4">
+                            <i class="fa-solid fa-graduation-cap text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-sky-600 font-semibold uppercase tracking-wider">Status Saat Ini</p>
+                            <p class="font-semibold text-slate-800">Siswa Kelas XII TKJ - SMK Ma’arif NU Tirto</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start p-4 bg-sky-50 rounded-xl border border-sky-100">
+                        <div class="p-3 bg-sky-500 text-white rounded-lg mr-4">
+                            <i class="fa-solid fa-heart text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-sky-600 font-semibold uppercase tracking-wider">Karakter Utama</p>
+                            <p class="font-semibold text-slate-800">Disiplin & Bertanggung Jawab</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-        </div>
+        <!-- Pendidikan Section -->
+        <section id="pendidikan" class="py-12 bg-sky-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Riwayat Pendidikan</h2>
+                    <div class="w-16 h-1 bg-sky-500 mx-auto mt-2 rounded-full"></div>
+                </div>
+
+                <div class="relative border-l-2 border-sky-300 ml-4 sm:ml-32 space-y-8">
+                    <!-- MIS Curug -->
+                    <div class="relative pl-6">
+                        <div class="absolute -left-2.5 top-1.5 w-5 h-5 bg-sky-500 rounded-full border-4 border-white shadow"></div>
+                        <div class="bg-white p-5 rounded-xl border border-sky-100 shadow-sm">
+                            <span class="inline-block px-3 py-1 bg-sky-100 text-sky-700 text-xs font-semibold rounded-full mb-2">Pendidikan Dasar</span>
+                            <h3 class="text-lg font-bold text-slate-800">MIS Curug</h3>
+                            <p class="text-sm text-slate-600 mt-1">Madrasah Ibtidaiyah Swasta Curug</p>
+                        </div>
+                    </div>
+
+                    <!-- MTS IN -->
+                    <div class="relative pl-6">
+                        <div class="absolute -left-2.5 top-1.5 w-5 h-5 bg-sky-500 rounded-full border-4 border-white shadow"></div>
+                        <div class="bg-white p-5 rounded-xl border border-sky-100 shadow-sm">
+                            <span class="inline-block px-3 py-1 bg-sky-100 text-sky-700 text-xs font-semibold rounded-full mb-2">Pendidikan Menengah Pertama</span>
+                            <h3 class="text-lg font-bold text-slate-800">MTS Istifaiyah Nahdliyah (MTS IN)</h3>
+                            <p class="text-sm text-slate-600 mt-1">Madrasah Tsanawiyah Istifaiyah Nahdliyah</p>
+                        </div>
+                    </div>
+
+                    <!-- SMK Ma'arif NU Tirto -->
+                    <div class="relative pl-6">
+                        <div class="absolute -left-2.5 top-1.5 w-5 h-5 bg-sky-600 rounded-full border-4 border-white shadow ring-2 ring-sky-300"></div>
+                        <div class="bg-white p-5 rounded-xl border-2 border-sky-400 shadow-md">
+                            <span class="inline-block px-3 py-1 bg-sky-500 text-white text-xs font-semibold rounded-full mb-2">Sekarang (Kelas XII)</span>
+                            <h3 class="text-lg font-bold text-slate-800">SMK Ma’arif NU Tirto</h3>
+                            <p class="text-sm text-slate-700 font-medium mt-1">Jurusan: Teknik Komputer dan Jaringan (TKJ)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Keahlian Section -->
-        <div class="card" style="margin-bottom: 30px;">
-            <h2 class="card-title"><i class="fa-solid fa-gears"></i> Keahlian & Skill Jaringan</h2>
-            <div class="skills-container">
-                <div class="skill-tag">
-                    <i class="fa-solid fa-server"></i> Install aaPanel
+        <section id="keahlian" class="py-12 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Keahlian & Kompetensi</h2>
+                    <p class="text-slate-600 text-sm mt-1">Spesialisasi di bidang Jaringan Komputer & Server</p>
+                    <div class="w-16 h-1 bg-sky-500 mx-auto mt-2 rounded-full"></div>
                 </div>
-                <div class="skill-tag">
-                    <i class="fa-solid fa-network-wired"></i> Setting VLAN
-                </div>
-                <div class="skill-tag">
-                    <i class="fa-solid fa-router"></i> Setting Router
-                </div>
-                <div class="skill-tag">
-                    <i class="fa-solid fa-wifi"></i> Setting Access Point
-                </div>
-                <div class="skill-tag">
-                    <i class="fa-solid fa-sliders"></i> Setting Switch Management
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- aaPanel -->
+                    <div class="p-5 bg-gradient-to-br from-sky-50 to-blue-50 border border-sky-200 rounded-2xl shadow-sm hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-sky-500 text-white rounded-xl flex items-center justify-center mb-4 text-xl">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-lg mb-1">Install aaPanel</h3>
+                        <p class="text-slate-600 text-sm">Kemampuan menginstal dan mengonfigurasi control panel aaPanel untuk pengelolaan web server.</p>
+                    </div>
+
+                    <!-- VLAN -->
+                    <div class="p-5 bg-gradient-to-br from-sky-50 to-blue-50 border border-sky-200 rounded-2xl shadow-sm hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-sky-500 text-white rounded-xl flex items-center justify-center mb-4 text-xl">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-lg mb-1">Setting VLAN</h3>
+                        <p class="text-slate-600 text-sm">Mengonfigurasi Virtual LAN untuk segmentasi jaringan yang lebih aman dan efisien.</p>
+                    </div>
+
+                    <!-- Router -->
+                    <div class="p-5 bg-gradient-to-br from-sky-50 to-blue-50 border border-sky-200 rounded-2xl shadow-sm hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-sky-500 text-white rounded-xl flex items-center justify-center mb-4 text-xl">
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-lg mb-1">Setting Router</h3>
+                        <p class="text-slate-600 text-sm">Pengaturan dan konfigurasi perangkat router untuk manajemen traffic dan routing jaringan.</p>
+                    </div>
+
+                    <!-- Access Point -->
+                    <div class="p-5 bg-gradient-to-br from-sky-50 to-blue-50 border border-sky-200 rounded-2xl shadow-sm hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-sky-500 text-white rounded-xl flex items-center justify-center mb-4 text-xl">
+                            <i class="fa-solid fa-signal"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-lg mb-1">Setting Access Point</h3>
+                        <p class="text-slate-600 text-sm">Pemasangan dan konfigurasi perangkat access point untuk jaringan nirkabel (Wi-Fi).</p>
+                    </div>
+
+                    <!-- Switch Management -->
+                    <div class="p-5 bg-gradient-to-br from-sky-50 to-blue-50 border border-sky-200 rounded-2xl shadow-sm hover:shadow-md transition sm:col-span-2 lg:col-span-1">
+                        <div class="w-12 h-12 bg-sky-500 text-white rounded-xl flex items-center justify-center mb-4 text-xl">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-lg mb-1">Setting Switch Managed</h3>
+                        <p class="text-slate-600 text-sm">Konfigurasi switch managed untuk pembagian port, security, dan pengelompokan jaringan.</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Kontak Section -->
-        <div class="contact-section">
-            <h2 class="card-title" style="
+        <!-- Call to Action / Social Links -->
+        <section id="kontak" class="py-14 bg-hero-gradient text-white">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3">Mari Terhubung!</h2>
+                <p class="text-sky-100 max-w-xl mx-auto text-sm sm:text-base mb-8">
+                    Silakan hubungi saya melalui kontak di bawah ini untuk diskusi, kerja sama, atau pertanyaan lebih lanjut.
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4">
+                    <!-- WhatsApp Button -->
+                    <a href="https://wa.me/6285842220988" target="_blank" class="flex items-center gap-3 bg-white text-emerald-600 hover:bg-emerald-50 px-6 py-3 rounded-xl font-bold shadow-lg transition duration-200 transform hover:-translate-y-1">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <div class="text-left">
+                            <p class="text-xs text-slate-500 leading-none">Chat via</p>
+                            <p class="text-sm font-extrabold text-emerald-600 leading-tight">+62 858-4222-0988</p>
+                        </div>
+                    </a>
+
+                    <!-- Email Button -->
+                    <a href="mailto:yattjiyatt@gmail.com" target="_blank" class="flex items-center gap-3 bg-white text-sky-600 hover:bg-sky-50 px-6 py-3 rounded-xl font-bold shadow-lg transition duration-200 transform hover:-translate-y-1">
+                        <i class="fa-regular fa-envelope text-2xl text-sky-600"></i>
+                        <div class="text-left">
+                            <p class="text-xs text-slate-500 leading-none">Kirim Email</p>
+                            <p class="text-sm font-extrabold text-sky-600 leading-tight">yattjiyatt@gmail.com</p>
+                        </div>
+                    </a>
+
+                    <!-- Instagram Button -->
+                    <a href="https://instagram.com/just4.zy__" target="_blank" class="flex items-center gap-3 bg-white text-pink-600 hover:bg-pink-50 px-6 py-3 rounded-xl font-bold shadow-lg transition duration-200 transform hover:-translate-y-1">
+                        <i class="fa-brands fa-instagram text-2xl text-pink-600"></i>
+                        <div class="text-left">
+                            <p class="text-xs text-slate-500 leading-none">Follow Instagram</p>
+                            <p class="text-sm font-extrabold text-pink-600 leading-tight">@just4.zy__</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs sm:text-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>&copy; 2026 Muhammad Ziad Ilmi. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
